@@ -8,6 +8,8 @@ This repository provides a small Node.js script to convert all `.heic` files in 
    ```bash
    npm install
    ```
+
+   이 단계에서 변환에 필요한 `heic-convert` 모듈이 함께 설치됩니다.
 2. 변환하고자 하는 폴더 경로를 지정하여 스크립트를 실행합니다.
    ```bash
    node convert.js /path/to/heic-folder

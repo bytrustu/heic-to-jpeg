@@ -1,6 +1,12 @@
 const fs = require('fs').promises;
 const path = require('path');
-const heicConvert = require('heic-convert');
+let heicConvert;
+try {
+  heicConvert = require('heic-convert');
+} catch (err) {
+  console.error('Missing dependency: heic-convert. Please run "npm install" first.');
+  process.exit(1);
+}
 
 async function convertDirectory(dir) {
   const entries = await fs.readdir(dir);

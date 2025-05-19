@@ -6,6 +6,9 @@
   "scripts": {
     "convert": "node convert.js"
   },
+  "dependencies": {
+    "heic-convert": "^1.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

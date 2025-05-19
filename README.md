@@ -1,6 +1,7 @@
 # HEIC to JPEG Converter
 
 This repository provides a small Node.js script to convert all `.heic` files in a given folder to JPEG images.
+The extension check is case-insensitive, so files like `example.HEIC` are also converted.
 
 ## 사용법 (Usage)
 

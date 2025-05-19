@@ -10,11 +10,13 @@ try {
 
 async function convertDirectory(dir) {
   const entries = await fs.readdir(dir);
+  const outputDir = path.join(dir, 'convert');
+  await fs.mkdir(outputDir, { recursive: true });
   for (const entry of entries) {
     const ext = path.extname(entry).toLowerCase();
     if (ext === '.heic') {
       const inputPath = path.join(dir, entry);
-      const outputPath = path.join(dir, path.basename(entry, ext) + '.jpg');
+      const outputPath = path.join(outputDir, path.basename(entry, ext) + '.jpg');
       const inputBuffer = await fs.readFile(inputPath);
       const outputBuffer = await heicConvert({
         buffer: inputBuffer,

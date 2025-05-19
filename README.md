@@ -15,4 +15,4 @@ This repository provides a small Node.js script to convert all `.heic` files in 
    node convert.js /path/to/heic-folder
    ```
 
-스크립트는 지정된 폴더 내의 모든 `.heic` 파일을 찾아 같은 위치에 같은 이름의 `.jpg` 파일로 저장합니다.
+스크립트는 지정된 폴더 내의 모든 `.heic` 파일을 찾아 `convert` 하위 폴더에 같은 이름의 `.jpg` 파일로 저장합니다.

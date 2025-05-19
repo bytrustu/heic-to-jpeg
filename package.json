@@ -1,0 +1,12 @@
+{
+  "name": "heic-to-jpeg",
+  "version": "1.0.0",
+  "description": "Convert HEIC images to JPEG",
+  "main": "convert.js",
+  "scripts": {
+    "convert": "node convert.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

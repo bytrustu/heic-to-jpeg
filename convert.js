@@ -1,0 +1,33 @@
+const fs = require('fs').promises;
+const path = require('path');
+const heicConvert = require('heic-convert');
+
+async function convertDirectory(dir) {
+  const entries = await fs.readdir(dir);
+  for (const entry of entries) {
+    const ext = path.extname(entry).toLowerCase();
+    if (ext === '.heic') {
+      const inputPath = path.join(dir, entry);
+      const outputPath = path.join(dir, path.basename(entry, ext) + '.jpg');
+      const inputBuffer = await fs.readFile(inputPath);
+      const outputBuffer = await heicConvert({
+        buffer: inputBuffer,
+        format: 'JPEG',
+        quality: 1
+      });
+      await fs.writeFile(outputPath, outputBuffer);
+      console.log(`Converted ${entry} -> ${path.basename(outputPath)}`);
+    }
+  }
+}
+
+const targetDir = process.argv[2];
+if (!targetDir) {
+  console.log('Usage: node convert.js <heic-folder>');
+  process.exit(1);
+}
+
+convertDirectory(targetDir).catch(err => {
+  console.error(err);
+  process.exit(1);
+});
